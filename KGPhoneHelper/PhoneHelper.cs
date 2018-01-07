@@ -3,6 +3,9 @@
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
 
+    /// <summary>
+    /// Класс для работы с мобильными номерами KG
+    /// </summary>
     public static class PhoneHelper
     {
         private static readonly string _basekod = "996";
@@ -64,8 +67,6 @@
             if (string.IsNullOrWhiteSpace(phone)) return string.Empty;
             phone = new Regex("\\D").Replace(phone, "");
 
-            if (phone.StartsWith("+") && phone.Length == 13)
-                return phone.Substring(1);
             if (phone.StartsWith(_basekod) && phone.Length == 12)
                 return phone;
             if (phone.StartsWith("0") && phone.Length == 10)
